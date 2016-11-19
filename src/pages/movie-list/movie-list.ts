@@ -1,22 +1,40 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
+import {MovieService} from "../../providers/movies.service";
+import {MovieDetails} from "../movie-details/movie-details";
 
-/*
-  Generated class for the MovieList page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-movie-list',
-  templateUrl: 'movie-list.html'
+  templateUrl: 'movie-list.html',
+  providers:[MovieService]
 })
 export class MovieList {
 
-  constructor(public navCtrl: NavController) {}
+  movieList :any= [];
+  genre :any= {};
 
-  ionViewDidLoad() {
-    console.log('Hello MovieList Page');
+  constructor(
+    public navCtrl: NavController,
+    private navParams : NavParams,
+    public movieService : MovieService
+  ) {
+    this.genre = navParams.get('genre');
+    this.getMovieList(this.genre.id);
   }
 
+  getMovieList(genreId){
+
+      this.movieService.getMovies(genreId).subscribe(response => {
+
+        this.movieList = response.results;
+
+      })
+  }
+
+  goToMovieDetails(movie){
+    let data = {
+      movie : movie
+    };
+    this.navCtrl.push(MovieDetails, data)
+  }
 }

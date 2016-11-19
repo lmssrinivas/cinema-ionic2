@@ -1,0 +1,61 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>movieDetails-details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card *ngIf="movieDetails">
+
+    <img [src]="'https://image.tmdb.org/t/p/w500'+movieDetails.backdrop_path"/>
+    <ion-card-content>
+
+      <ion-card-title>
+        {{movieDetails.original_title}}
+      </ion-card-title>
+      <p>
+        {{movieDetails.overview}}
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='star'></ion-icon>
+          Favorite
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='musical-notes'></ion-icon>
+          Listen
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-left>
+          <ion-icon name='share-alt'></ion-icon>
+          Share
+        </button>
+      </ion-col>
+    </ion-row>
+
+    <ion-item>
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      Homepage :
+      <ion-badge item-right> {{movieDetails.homepage}}</ion-badge>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="logo-twitter" item-left></ion-icon>
+      <a [href]="'http://www.imdb.com/title/'+movieDetails.imdb_id">Imdb</a>
+      <!--<ion-badge item-right> {{movieDetails.homepage}}</ion-badge>-->
+    </ion-item>
+
+  </ion-card>
+
+</ion-content>

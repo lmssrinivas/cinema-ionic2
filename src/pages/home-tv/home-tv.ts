@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {MovieService} from "../../providers/movies.service";
+import {MovieList} from "../movie-list/movie-list";
 
 /*
   Generated class for the HomeTv page.
@@ -20,18 +21,16 @@ export class HomeTv {
   genreList : any ;
 
   constructor(public navCtrl: NavController, public movieService: MovieService) {
-    this.getMovies();
     this.getGenres();
   }
 
 
-  getMovies(){
+  goToMovies(genre){
 
-    this.movieService.getMovies().subscribe(
-      response => {
-        this.movieList = response;
-      }
-    )
+    let data = {
+      genre : genre
+    };
+    this.navCtrl.push(MovieList,data);
   }
 
   getGenres(){

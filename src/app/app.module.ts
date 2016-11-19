@@ -5,15 +5,17 @@ import {MyApp} from './app.component';
 import {TabsPage} from '../pages/tabs/tabs';
 import {TeamDetail} from "../pages/team-detail/team-detail.page";
 import {Teams} from "../pages/teams/teams.page";
-import {MoviesPage} from "../pages/movies/movies.page";
 import {HomeTv} from "../pages/home-tv/home-tv";
 import {Profile} from "../pages/profile/profile";
+import {MovieList} from "../pages/movie-list/movie-list";
+import {MovieDetails} from "../pages/movie-details/movie-details";
 
 @NgModule({
   declarations: [
     MyApp,
-    MoviesPage,
     HomeTv,
+    MovieList,
+    MovieDetails,
     TeamDetail,
     Teams,
     Profile,
@@ -25,8 +27,9 @@ import {Profile} from "../pages/profile/profile";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    MoviesPage,
     HomeTv,
+    MovieList,
+    MovieDetails,
     TeamDetail,
     Teams,
     Profile,
