@@ -2,17 +2,18 @@ import { Component } from '@angular/core';
 
 import {Teams} from "../teams/teams.page";
 import {TeamDetail} from "../team-detail/team-detail.page";
-import {Tournaments} from "../tournaments/tournaments.page";
+import {HomeTv} from "../home-tv/home-tv";
+import {Profile} from "../profile/profile";
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
-  // this tells the tabs component which Pages
-  // should be each tab's root Page
-  tab1Root: any = Teams;
-  tab2Root: any = TeamDetail;
-  tab3Root: any = Tournaments;
+
+  homeTv: any = HomeTv;
+  teams: any = Teams;
+  teamDetails: any = TeamDetail;
+  profile: any = Profile;
 
   constructor() {
 

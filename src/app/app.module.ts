@@ -1,18 +1,22 @@
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
+import {NgModule} from '@angular/core';
+import {IonicApp, IonicModule} from 'ionic-angular';
+import {MyApp} from './app.component';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import {TabsPage} from '../pages/tabs/tabs';
 import {TeamDetail} from "../pages/team-detail/team-detail.page";
 import {Teams} from "../pages/teams/teams.page";
-import {Tournaments} from "../pages/tournaments/tournaments.page";
+import {MoviesPage} from "../pages/movies/movies.page";
+import {HomeTv} from "../pages/home-tv/home-tv";
+import {Profile} from "../pages/profile/profile";
 
 @NgModule({
   declarations: [
     MyApp,
+    MoviesPage,
+    HomeTv,
     TeamDetail,
     Teams,
-    Tournaments,
+    Profile,
     TabsPage
   ],
   imports: [
@@ -21,11 +25,14 @@ import {Tournaments} from "../pages/tournaments/tournaments.page";
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    MoviesPage,
+    HomeTv,
     TeamDetail,
     Teams,
-    Tournaments,
+    Profile,
     TabsPage
   ],
   providers: []
 })
-export class AppModule {}
+export class AppModule {
+}
