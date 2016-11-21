@@ -1,0 +1,32 @@
+
+<ion-header>
+  <ion-navbar>
+      <ion-title>
+        Movies
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content *ngIf="genreList">
+
+  <ion-card>
+
+    <ion-card-header>
+      Category
+    </ion-card-header>
+
+    <ion-list *ngFor="let genre of genreList">
+      <button ion-item (click)="goToMovies(genre)">
+        <ion-icon name="cart" item-left></ion-icon>
+        {{genre.name}}
+      </button>
+    </ion-list>
+
+    <ion-card-content>
+      <!-- Add card content here! -->
+    </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

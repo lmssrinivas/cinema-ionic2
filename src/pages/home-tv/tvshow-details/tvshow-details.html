@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{selectedMovie.original_title}}</ion-title>
+    <ion-title>{{selectedShow.title}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -10,13 +10,13 @@
 
 <ion-content>
 
-  <ion-card *ngIf="movieDetails">
+  <ion-card *ngIf="tvShowDetails">
 
-    <img [src]="'https://image.tmdb.org/t/p/w500'+movieDetails.backdrop_path"/>
+    <img [src]="tvShowDetails.banner"/>
     <ion-card-content>
 
       <p>
-        {{movieDetails.overview}}
+        {{tvShowDetails.overview}}
       </p>
     </ion-card-content>
 
@@ -43,14 +43,14 @@
 
     <ion-item>
       <ion-icon name="logo-twitter" item-left></ion-icon>
-      Homepage :
-      <ion-badge item-right> {{movieDetails.homepage}}</ion-badge>
+      Network :
+      <ion-badge item-right> {{tvShowDetails.network}}</ion-badge>
     </ion-item>
 
     <ion-item>
       <ion-icon name="logo-twitter" item-left></ion-icon>
-      <a [href]="'http://www.imdb.com/title/'+movieDetails.imdb_id">Imdb</a>
-      <!--<ion-badge item-right> {{movieDetails.homepage}}</ion-badge>-->
+      <a [href]="'http://www.imdb.com/title/'+tvShowDetails.imdb_id">Imdb</a>
+      <!--<ion-badge item-right> {{tvShowDetails.homepage}}</ion-badge>-->
     </ion-item>
 
   </ion-card>

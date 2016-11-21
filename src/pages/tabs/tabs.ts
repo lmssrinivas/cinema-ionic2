@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 
-import {Teams} from "../teams/teams.page";
 import {TeamDetail} from "../team-detail/team-detail.page";
-import {HomeTv} from "../home-tv/home-tv";
+import {HomeMovies} from "../home-movies/home-movies";
 import {Profile} from "../profile/profile";
+import {HomeTv} from "../home-tv/home-tv";
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
+  homeMovies: any = HomeMovies;
   homeTv: any = HomeTv;
-  teams: any = Teams;
   teamDetails: any = TeamDetail;
   profile: any = Profile;
 

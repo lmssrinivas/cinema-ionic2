@@ -8,12 +8,15 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let movie of movieList" (click)="goToMovieDetails(movie)">
-    <img [src]="'https://image.tmdb.org/t/p/w500'+movie.backdrop_path"/>
+  <ion-card *ngFor="let movie of movieList"  >
+    <div (click)="goToMovieDetails(movie)">
+      <img [src]="'https://image.tmdb.org/t/p/w500'+movie.backdrop_path"/>
 
-    <ion-card-content>
+      <ion-card-content>
         <ion-card-title> {{movie.original_title}} </ion-card-title>
-    </ion-card-content>
+      </ion-card-content>
+
+    </div>
 
   </ion-card>
 </ion-content>

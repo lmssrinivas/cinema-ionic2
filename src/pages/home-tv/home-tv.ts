@@ -1,43 +1,46 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import {MovieService} from "../../providers/movies.service";
-import {MovieList} from "../movie-list/movie-list";
+import {TvshowDetails} from "./tvshow-details/tvshow-details";
 
-/*
-  Generated class for the HomeTv page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-home-tv',
   templateUrl: 'home-tv.html',
   providers:[MovieService]
-
 })
 export class HomeTv {
 
-  movieList : any ;
+
   genreList : any ;
+  tvShowsList : any ;
 
   constructor(public navCtrl: NavController, public movieService: MovieService) {
     this.getGenres();
+    this.getTvShows();
   }
 
 
-  goToMovies(genre){
+  goToTvShowDetails(show){
 
-    let data = {
-      genre : genre
-    };
-    this.navCtrl.push(MovieList,data);
+    this.navCtrl.push(TvshowDetails,{
+      show:show
+    });
   }
 
   getGenres(){
 
-    this.movieService.getGenres().subscribe(
+    this.movieService.getTvShowsGenres().subscribe(
       response => {
-        this.genreList = response.genres;
+        this.genreList = response.results;
+      }
+    )
+  }
+
+  getTvShows(){
+
+    this.movieService.getTvShows().subscribe(
+      response => {
+        this.tvShowsList = response.results;
       }
     )
   }

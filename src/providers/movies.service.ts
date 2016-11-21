@@ -12,6 +12,8 @@ import {Observable} from "rxjs";
 
 export class MovieService {
 
+  public baseApi = 'http://api-public.guidebox.com/v1.43/US/OMUhDTS2OWBOBwIbwgIcIdtNbi9fhG/';
+
   constructor(public http: Http) {
 
   }
@@ -34,4 +36,24 @@ export class MovieService {
       .catch((error: any) => Observable.throw(error.json().error || 'Server Error'))
   }
 
+  getTvShowsGenres():Observable<any>{
+    return this.http.get(`${this.baseApi}genres`)
+
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server Error'))
+  }
+
+  getTvShows():Observable<any>{
+    return this.http.get(`${this.baseApi}shows/all/1/25/all/all`)
+
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server Error'))
+  }
+
+  getTvShowDetails(showId):Observable<any>{
+    return this.http.get(`${this.baseApi}show/${showId}`)
+
+      .map((res: Response) => res.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server Error'))
+  }
 }
